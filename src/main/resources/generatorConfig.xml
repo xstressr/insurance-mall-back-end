@@ -31,7 +31,9 @@
 
 
 
-        <table tableName="recommend_subject"></table>
+        <table tableName="t_maintain"></table>
+        <table tableName="t_maintain_plan"></table>
+        <table tableName="t_maintain_single"></table>
     </context>
 </generatorConfiguration>
 
