@@ -1,4 +1,4 @@
-package com.sjy.equipment_manager_system.mbg.model;
+package com.sjy.equipment_manager_system.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @mbg.generated do_not_delete_during_merge
  */
-public class TMaintainSingle implements Serializable {
+public class maintainSingleDao implements Serializable {
     /**
      * Database Column Remarks:
      *   保养单号
