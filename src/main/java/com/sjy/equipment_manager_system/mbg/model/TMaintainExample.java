@@ -795,66 +795,6 @@ public class TMaintainExample {
             return (Criteria) this;
         }
 
-        public Criteria andMainFinishDataIsNull() {
-            addCriterion("main_finish_data is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataIsNotNull() {
-            addCriterion("main_finish_data is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataEqualTo(Date value) {
-            addCriterion("main_finish_data =", value, "mainFinishData");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataNotEqualTo(Date value) {
-            addCriterion("main_finish_data <>", value, "mainFinishData");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataGreaterThan(Date value) {
-            addCriterion("main_finish_data >", value, "mainFinishData");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataGreaterThanOrEqualTo(Date value) {
-            addCriterion("main_finish_data >=", value, "mainFinishData");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataLessThan(Date value) {
-            addCriterion("main_finish_data <", value, "mainFinishData");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataLessThanOrEqualTo(Date value) {
-            addCriterion("main_finish_data <=", value, "mainFinishData");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataIn(List<Date> values) {
-            addCriterion("main_finish_data in", values, "mainFinishData");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataNotIn(List<Date> values) {
-            addCriterion("main_finish_data not in", values, "mainFinishData");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataBetween(Date value1, Date value2) {
-            addCriterion("main_finish_data between", value1, value2, "mainFinishData");
-            return (Criteria) this;
-        }
-
-        public Criteria andMainFinishDataNotBetween(Date value1, Date value2) {
-            addCriterion("main_finish_data not between", value1, value2, "mainFinishData");
-            return (Criteria) this;
-        }
-
         public Criteria andVerifyDescrIsNull() {
             addCriterion("verify_descr is null");
             return (Criteria) this;
@@ -982,6 +922,66 @@ public class TMaintainExample {
 
         public Criteria andVeriftPasstimeNotBetween(Date value1, Date value2) {
             addCriterion("verift_passtime not between", value1, value2, "veriftPasstime");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateIsNull() {
+            addCriterion("main_finish_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateIsNotNull() {
+            addCriterion("main_finish_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateEqualTo(Date value) {
+            addCriterion("main_finish_date =", value, "mainFinishDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateNotEqualTo(Date value) {
+            addCriterion("main_finish_date <>", value, "mainFinishDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateGreaterThan(Date value) {
+            addCriterion("main_finish_date >", value, "mainFinishDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("main_finish_date >=", value, "mainFinishDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateLessThan(Date value) {
+            addCriterion("main_finish_date <", value, "mainFinishDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateLessThanOrEqualTo(Date value) {
+            addCriterion("main_finish_date <=", value, "mainFinishDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateIn(List<Date> values) {
+            addCriterion("main_finish_date in", values, "mainFinishDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateNotIn(List<Date> values) {
+            addCriterion("main_finish_date not in", values, "mainFinishDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateBetween(Date value1, Date value2) {
+            addCriterion("main_finish_date between", value1, value2, "mainFinishDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andMainFinishDateNotBetween(Date value1, Date value2) {
+            addCriterion("main_finish_date not between", value1, value2, "mainFinishDate");
             return (Criteria) this;
         }
     }
