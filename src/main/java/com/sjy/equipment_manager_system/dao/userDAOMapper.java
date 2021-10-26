@@ -1,6 +1,8 @@
 package com.sjy.equipment_manager_system.dao;
 
+import com.sjy.equipment_manager_system.entity.User;
 import com.sjy.equipment_manager_system.entity.userDAO;
+import org.apache.ibatis.annotations.Select;
 
 public interface userDAOMapper {
     /**
@@ -50,4 +52,8 @@ public interface userDAOMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(userDAO record);
+
+
+
+    userDAO selectByUserName(String username);
 }
