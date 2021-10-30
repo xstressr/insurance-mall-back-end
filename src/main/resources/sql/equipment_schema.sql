@@ -18,27 +18,27 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for t_maintain
+-- Table structure for t_repair
 -- ----------------------------
-DROP TABLE IF EXISTS `t_maintain`;
-CREATE TABLE `t_maintain` (
-  `mid` int NOT NULL AUTO_INCREMENT COMMENT '维修单号',
-  `msubmit_time` datetime NOT NULL COMMENT '维修填报时间',
-  `msubmit_people` varchar(50) NOT NULL COMMENT '维修上报人',
-  `error_equip` varchar(50) NOT NULL COMMENT '故障设备',
-  `error_descr` varchar(500) DEFAULT NULL COMMENT '故障描述',
-  `main_status` varchar(50) NOT NULL COMMENT '维修状态',
-  `main_people` varchar(50) NOT NULL COMMENT '维修人员',
-  `main_price` float NOT NULL COMMENT '维修费用',
-  `main_descr` varchar(500) DEFAULT NULL COMMENT '维修描述',
-  `main_finish_data` datetime NOT NULL COMMENT '维修完成时间',
+DROP TABLE IF EXISTS `t_repair`;
+CREATE TABLE `t_repair` (
+  `repair_no` varchar(50) NOT NULL  COMMENT '维修单号',
+  `repair_submit_time` datetime NOT NULL COMMENT '维修填报时间',
+  `repair_submit_people` varchar(50) NOT NULL COMMENT '维修上报人',
+  `fault_equip` varchar(50) NOT NULL COMMENT '故障设备',
+  `fault_descr` varchar(500) DEFAULT NULL COMMENT '故障描述',
+  `repair_status` varchar(50) NOT NULL COMMENT '维修状态',
+  `repair_people` varchar(50) NOT NULL COMMENT '维修人员',
+  `repair_price` float NOT NULL COMMENT '维修费用',
+  `repair_descr` varchar(500) DEFAULT NULL COMMENT '维修描述',
+  `repair_finish_date` datetime NOT NULL COMMENT '维修完成时间',
   `verify_descr` varchar(200) DEFAULT NULL COMMENT '验证描述',
-  `verift_passtime` datetime DEFAULT NULL COMMENT '验证通过时间',
-  PRIMARY KEY (`mid`)
+  `verify_passtime` datetime DEFAULT NULL COMMENT '验证通过时间',
+  PRIMARY KEY (`repair_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COMMENT='维修管理表';
 
 -- ----------------------------
--- Records of t_maintain
+-- Records of t_repair
 -- ----------------------------
 BEGIN;
 COMMIT;
@@ -48,14 +48,14 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_maintain_plan`;
 CREATE TABLE `t_maintain_plan` (
-  `mid` int NOT NULL AUTO_INCREMENT COMMENT '保养编号',
-  `mtype` varchar(50) NOT NULL COMMENT '保养类型',
+  `maintain_plan_id` varchar(50) NOT NULL  COMMENT '保养编号',
+  `maintain_type` varchar(50) NOT NULL COMMENT '保养类型',
   `maintain_startime` datetime DEFAULT NULL COMMENT '保养开始时间',
   `maintain_equip` varchar(50) NOT NULL COMMENT '保养设备',
   `maintain_content` varchar(200) NOT NULL COMMENT '保养内容',
-  `main_people` varchar(50) NOT NULL COMMENT '保养人员',
-  `main_descr` varchar(500) DEFAULT NULL COMMENT '保养描述',
-  PRIMARY KEY (`mid`)
+  `maintain_people` varchar(50) NOT NULL COMMENT '保养人员',
+  `maintain_descr` varchar(500) DEFAULT NULL COMMENT '保养描述',
+  PRIMARY KEY (`maintain_plan_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COMMENT='保养计划表';
 
 -- ----------------------------
@@ -65,22 +65,22 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
--- Table structure for t_maintain_single
+-- Table structure for t_maintain
 -- ----------------------------
-DROP TABLE IF EXISTS `t_maintain_single`;
-CREATE TABLE `t_maintain_single` (
-  `mid` int NOT NULL AUTO_INCREMENT COMMENT '保养单号',
+DROP TABLE IF EXISTS `t_maintain`;
+CREATE TABLE `t_maintain` (
+  `maintain_id` varchar(50) NOT NULL  COMMENT '保养单号',
   `maintain_time` datetime NOT NULL COMMENT '保养时间',
-  `maintain_plan_number` varchar(50) NOT NULL COMMENT '保养计划编号',
+  `maintain_plan_id` varchar(50) NOT NULL COMMENT '保养计划编号',
   `maintain_content` varchar(50) NOT NULL COMMENT '保养内容',
   `maintain_status` varchar(50) NOT NULL COMMENT '保养状态',
   `maintain_people` varchar(50) NOT NULL COMMENT '保养人员',
   `maintain_price` float NOT NULL COMMENT '保养费用',
   `maintain_descr` varchar(500) DEFAULT NULL COMMENT '保养描述',
-  `maintain_finish_time` datetime NOT NULL COMMENT '保养完成时间',
+  `maintain_finish_date` datetime NOT NULL COMMENT '保养完成时间',
   `verify_descr` varchar(200) DEFAULT NULL COMMENT '验证描述',
-  `verift_passtime` datetime DEFAULT NULL COMMENT '验证通过时间',
-  PRIMARY KEY (`mid`)
+  `verify_passtime` datetime DEFAULT NULL COMMENT '验证通过时间',
+  PRIMARY KEY (`maintain_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COMMENT='保养单表';
 
 -- ----------------------------
