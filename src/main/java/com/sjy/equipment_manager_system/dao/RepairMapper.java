@@ -58,5 +58,11 @@ public interface RepairMapper {
      * 自己写的mapper
      */
 
+    /**
+     * 查询所有维修单
+     * @return
+     */
     List<Repair> selectAll();
+
+
 }

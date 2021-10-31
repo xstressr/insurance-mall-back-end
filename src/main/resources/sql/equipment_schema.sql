@@ -24,16 +24,16 @@ DROP TABLE IF EXISTS `t_repair`;
 CREATE TABLE `t_repair` (
   `repair_no` varchar(50) NOT NULL  COMMENT '维修单号',
   `repair_submit_time` datetime NOT NULL COMMENT '维修填报时间',
-  `repair_submit_people` varchar(50) NOT NULL COMMENT '维修上报人',
+  `repair_submit_people` varchar(50) COMMENT '维修上报人',
   `fault_equip` varchar(50) NOT NULL COMMENT '故障设备',
-  `fault_descr` varchar(500) DEFAULT NULL COMMENT '故障描述',
+  `fault_descr` varchar(500) COMMENT '故障描述',
   `repair_status` varchar(50) NOT NULL COMMENT '维修状态',
   `repair_people` varchar(50) NOT NULL COMMENT '维修人员',
-  `repair_price` float NOT NULL COMMENT '维修费用',
-  `repair_descr` varchar(500) DEFAULT NULL COMMENT '维修描述',
-  `repair_finish_date` datetime NOT NULL COMMENT '维修完成时间',
-  `verify_descr` varchar(200) DEFAULT NULL COMMENT '验证描述',
-  `verify_passtime` datetime DEFAULT NULL COMMENT '验证通过时间',
+  `repair_price` float  COMMENT '维修费用',
+  `repair_descr` varchar(500)  COMMENT '维修描述',
+  `repair_finish_date` datetime  COMMENT '维修完成时间',
+  `verify_descr` varchar(200)  COMMENT '验证描述',
+  `verify_passtime` datetime  COMMENT '验证通过时间',
   PRIMARY KEY (`repair_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COMMENT='维修管理表';
 
@@ -50,11 +50,11 @@ DROP TABLE IF EXISTS `t_maintain_plan`;
 CREATE TABLE `t_maintain_plan` (
   `maintain_plan_id` varchar(50) NOT NULL  COMMENT '保养编号',
   `maintain_type` varchar(50) NOT NULL COMMENT '保养类型',
-  `maintain_startime` datetime DEFAULT NULL COMMENT '保养开始时间',
+  `maintain_startime` datetime NOT NULL COMMENT '保养开始时间',
   `maintain_equip` varchar(50) NOT NULL COMMENT '保养设备',
   `maintain_content` varchar(200) NOT NULL COMMENT '保养内容',
   `maintain_people` varchar(50) NOT NULL COMMENT '保养人员',
-  `maintain_descr` varchar(500) DEFAULT NULL COMMENT '保养描述',
+  `maintain_descr` varchar(500)  COMMENT '保养描述',
   PRIMARY KEY (`maintain_plan_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COMMENT='保养计划表';
 
@@ -73,13 +73,13 @@ CREATE TABLE `t_maintain` (
   `maintain_time` datetime NOT NULL COMMENT '保养时间',
   `maintain_plan_id` varchar(50) NOT NULL COMMENT '保养计划编号',
   `maintain_content` varchar(50) NOT NULL COMMENT '保养内容',
-  `maintain_status` varchar(50) NOT NULL COMMENT '保养状态',
+  `maintain_status` varchar(50)  COMMENT '保养状态',
   `maintain_people` varchar(50) NOT NULL COMMENT '保养人员',
-  `maintain_price` float NOT NULL COMMENT '保养费用',
-  `maintain_descr` varchar(500) DEFAULT NULL COMMENT '保养描述',
-  `maintain_finish_date` datetime NOT NULL COMMENT '保养完成时间',
-  `verify_descr` varchar(200) DEFAULT NULL COMMENT '验证描述',
-  `verify_passtime` datetime DEFAULT NULL COMMENT '验证通过时间',
+  `maintain_price` float COMMENT '保养费用',
+  `maintain_descr` varchar(500)  COMMENT '保养描述',
+  `maintain_finish_date` datetime  COMMENT '保养完成时间',
+  `verify_descr` varchar(200)  COMMENT '验证描述',
+  `verify_passtime` datetime  COMMENT '验证通过时间',
   PRIMARY KEY (`maintain_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3 COMMENT='保养单表';
 

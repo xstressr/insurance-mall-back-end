@@ -1,8 +1,7 @@
-package com.sjy.equipment_manager_system.controller;
+package com.sjy.equipment_manager_system.tmp;
 
 
 
-import com.sjy.equipment_manager_system.entity.User;
 import com.sjy.equipment_manager_system.common.util.JwtUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

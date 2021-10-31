@@ -6,8 +6,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.sjy.equipment_manager_system.entity.User;
-import com.sjy.equipment_manager_system.entity.userDAO;
+import com.sjy.equipment_manager_system.entity.Staff;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +34,7 @@ public class JwtUtil {
     /**
      * 生成用户token,设置token超时时间
      */
-    public static String createToken(userDAO user) {
+    public static String createToken(Staff staff) {
         //过期时间
         Date expireDate = new Date(System.currentTimeMillis() + EXPIRATION * 1000);
         Map<String, Object> map = new HashMap<>();
@@ -44,8 +43,8 @@ public class JwtUtil {
         String token = JWT.create()
                 .withHeader(map)// 添加头部
                 //可以将基本信息放到claims中
-                .withClaim("id", user.getId())//userId
-                .withClaim("userName", user.getUsername())//userName
+                .withClaim("id", staff.getStaffId())//userId
+                .withClaim("userName", staff.getStaffName())//userName
                 .withExpiresAt(expireDate) //超时设置,设置过期的日期
                 .withIssuedAt(new Date()) //签发时间
                 .sign(Algorithm.HMAC256(SECRET)); //SECRET加密

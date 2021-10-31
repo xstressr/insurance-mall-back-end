@@ -37,7 +37,7 @@
     from t_maintain
     where maintain_id = #{maintainId,jdbcType=VARCHAR}
   </select>
-    <select id="selectAll" resultType="com.sjy.equipment_manager_system.entity.Maintain">
+    <select id="selectAll" resultMap="BaseResultMap">
       select
       <include refid="Base_Column_List" />
       from t_maintain

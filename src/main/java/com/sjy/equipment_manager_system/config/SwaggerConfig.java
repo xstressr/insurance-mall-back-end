@@ -30,7 +30,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("基于Swagger构建的Rest API文档")
-                .description("项目实战大作业成员：孙纪元、刘乐、郑攀一、万澎伟")
+                .description("项目实战大作业成员：孙纪元(队长)、刘乐、郑攀一、万澎伟、黄海波")
                 .contact(new Contact("孙纪元","","1420046903@qq.com"))
                 .termsOfServiceUrl("")
                 .version("1.0")

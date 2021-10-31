@@ -9,13 +9,27 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sjy</groupId>
-    <artifactId>mall-learn</artifactId>
+    <artifactId>project-work</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mall-learn</name>
-    <description>mall-learn</description>
+    <name>project-work</name>
+    <description>project-work</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>spring</id>
+            <url>https://maven.aliyun.com/repository/spring</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
