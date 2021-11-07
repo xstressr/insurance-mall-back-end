@@ -18,23 +18,23 @@
         <!-- 数据库连接 -->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL="jdbc:mysql://101.34.207.75:3306/project_work"
+                connectionURL="jdbc:mysql://localhost:3306/project_work"
                 userId="root"
-                password="abc123456"/>
+                password="my-secret-pw"/>
 
         <!-- 生成POJO对象，并将类放到com.songguoliang.springboot.entity包下 -->
-        <javaModelGenerator targetPackage="com.sjy.equipment_manager_system.entity" targetProject="src/main/java"></javaModelGenerator>
+        <javaModelGenerator targetPackage="com.sjy.insurance.entity" targetProject="src/main/java"></javaModelGenerator>
         <!-- 生成mapper xml文件，并放到resources下的mapper文件夹下 -->
         <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources"></sqlMapGenerator>
         <!-- 生成mapper xml对应dao接口，放到com.songguoliang.springboot.mapper包下-->
-        <javaClientGenerator targetPackage="com.sjy.equipment_manager_system.dao" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
+        <javaClientGenerator targetPackage="com.sjy.insurance.dao" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
 
 
 
-        <table tableName="t_repair" domainObjectName="Repair" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="t_maintain_plan" domainObjectName="MaintainPlan" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="t_maintain" domainObjectName="Maintain" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="t_staff" domainObjectName="Staff" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+        <table tableName="t_insurance_mall_admin_user" domainObjectName="AdminUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="t_insurance_mall_goods_info" domainObjectName="Goods" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="t_insurance_mall_thirdparty" domainObjectName="ThirdParty" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="t_insurance_mall_user" domainObjectName="CustomerUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
     </context>
 </generatorConfiguration>
 
