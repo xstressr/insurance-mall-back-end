@@ -1,4 +1,4 @@
-/*
+        /*
  Navicat Premium Data Transfer
 
  Source Server         : local
@@ -11,7 +11,7 @@
  Target Server Version : 80027
  File Encoding         : 65001
 
- Date: 07/11/2021 19:26:44
+ Date: 08/11/2021 19:57:25
 */
 
 SET NAMES utf8mb4;
@@ -39,6 +39,27 @@ INSERT INTO `t_insurance_category` VALUES (5, '旅游险');
 INSERT INTO `t_insurance_category` VALUES (6, '定期寿险');
 INSERT INTO `t_insurance_category` VALUES (7, '责任险');
 INSERT INTO `t_insurance_category` VALUES (8, '家财险');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for t_insurance_guarantee_slip
+-- ----------------------------
+DROP TABLE IF EXISTS `t_insurance_guarantee_slip`;
+CREATE TABLE `t_insurance_guarantee_slip` (
+  `id` int NOT NULL COMMENT '保单号',
+  `owner` varchar(50) NOT NULL COMMENT '拥有者',
+  `product` varchar(50) NOT NULL COMMENT '保险商品',
+  `product_claim_min` int NOT NULL COMMENT '保额最少赔付',
+  `product_claim_max` int NOT NULL COMMENT '保额最大赔付',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- ----------------------------
+-- Records of t_insurance_guarantee_slip
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_insurance_guarantee_slip` VALUES (1, 'sjy', '专业产险', 10000, 50000, '2021-11-08 16:12:09');
 COMMIT;
 
 -- ----------------------------
