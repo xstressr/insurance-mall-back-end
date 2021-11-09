@@ -6,7 +6,7 @@
  * 版权所有，侵权必究！
  */
 
-package com.sjy.insurance.common.util;
+package com.sjy.insurance.util;
 
 import org.apache.http.HttpStatus;
 

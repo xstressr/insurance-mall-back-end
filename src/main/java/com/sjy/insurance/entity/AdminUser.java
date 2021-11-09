@@ -1,5 +1,7 @@
 package com.sjy.insurance.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -22,6 +24,7 @@ public class AdminUser implements Serializable {
      *
      * @mbg.generated
      */
+    @ApiModelProperty("管理员id")
     private Long adminUserId;
 
     /**
@@ -33,6 +36,7 @@ public class AdminUser implements Serializable {
      *
      * @mbg.generated
      */
+    @ApiModelProperty("管理员登陆名称")
     private String loginName;
 
     /**
@@ -44,6 +48,7 @@ public class AdminUser implements Serializable {
      *
      * @mbg.generated
      */
+    @ApiModelProperty("管理员登陆密码")
     private String loginPassword;
 
     /**
@@ -55,6 +60,7 @@ public class AdminUser implements Serializable {
      *
      * @mbg.generated
      */
+    @ApiModelProperty("管理员显示昵称")
     private String nickName;
 
     /**
@@ -66,6 +72,7 @@ public class AdminUser implements Serializable {
      *
      * @mbg.generated
      */
+    @ApiModelProperty("是否锁定 0未锁定 1已锁定无法登陆")
     private Byte locked;
 
     /**
@@ -77,6 +84,7 @@ public class AdminUser implements Serializable {
      *
      * @mbg.generated
      */
+    @ApiModelProperty("注册时间")
     private Date createTime;
 
     /**

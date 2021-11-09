@@ -3,6 +3,8 @@ package com.sjy.insurance.controller;
 import com.sjy.insurance.bo.LoginUser;
 import com.sjy.insurance.entity.AdminUser;
 import com.sjy.insurance.service.AdminUserService;
+import com.sjy.insurance.util.Result;
+import com.sjy.insurance.util.ResultGenerator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -23,9 +25,13 @@ public class AdminUserController {
 
     @ApiOperation("管理员登陆")
     @PostMapping("/apis/admin/login")
-    public String login(@RequestBody LoginUser loginUser) {
+    public Result login(@RequestBody LoginUser loginUser) {
         int result = adminUserService.login(loginUser);
-        return result > 0 ? "成功" : "失败";
+//        return result > 0 ? "成功" : "失败";
+        if(result > 0) {
+            return ResultGenerator.genSuccessResult("登陆成功");
+        }
+        return ResultGenerator.genErrorResult(500, "没有这用户名");
     }
 
     @ApiOperation("管理员注册")
@@ -38,8 +44,11 @@ public class AdminUserController {
 
     @ApiOperation("管理员所有查询")
     @GetMapping("/apis/admin/queryAll")
-    public List<AdminUser> queryAll() {
+    public Result queryAll() {
         List<AdminUser> adminUserList = adminUserService.queryAllAdminUser();
-        return adminUserList;
+        if (adminUserList.size() > 0) {
+            return ResultGenerator.genSuccessResult(adminUserList);
+        }
+        return ResultGenerator.genSuccessResult("没有用户");
     }
 }
