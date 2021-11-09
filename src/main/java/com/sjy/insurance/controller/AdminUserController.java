@@ -29,9 +29,9 @@ public class AdminUserController {
         int result = adminUserService.login(loginUser);
 //        return result > 0 ? "成功" : "失败";
         if(result > 0) {
-            return ResultGenerator.genSuccessResult("登陆成功");
+            return ResultGenerator.getSuccessResult("登陆成功");
         }
-        return ResultGenerator.genErrorResult(500, "没有这用户名");
+        return ResultGenerator.getErrorResult(500, "没有这用户名");
     }
 
     @ApiOperation("管理员注册")
@@ -47,8 +47,8 @@ public class AdminUserController {
     public Result queryAll() {
         List<AdminUser> adminUserList = adminUserService.queryAllAdminUser();
         if (adminUserList.size() > 0) {
-            return ResultGenerator.genSuccessResult(adminUserList);
+            return ResultGenerator.getSuccessResult(adminUserList);
         }
-        return ResultGenerator.genSuccessResult("没有用户");
+        return ResultGenerator.getSuccessResult("没有用户");
     }
 }

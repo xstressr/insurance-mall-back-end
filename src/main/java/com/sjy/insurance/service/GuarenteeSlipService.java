@@ -9,9 +9,9 @@ public interface GuarenteeSlipService {
     //TODO:未写
     List<GuarenteeSlip> getAll();
 
-    List<GuarenteeSlip> getAllByUserId(String userId);
+    List<GuarenteeSlip> getAllByUserId(int id);
 
-    int insertGuarenteeSlip();
+    int insertGuarenteeSlip(GuarenteeSlip guarenteeSlip);
 
-    int deleteGuarenteeSlip();
+    int deleteGuarenteeSlip(int id);
 }

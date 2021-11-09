@@ -4,6 +4,8 @@ package com.sjy.insurance.controller;
 import com.sjy.insurance.bo.LoginUser;
 import com.sjy.insurance.entity.CustomerUser;
 import com.sjy.insurance.service.CustomerService;
+import com.sjy.insurance.util.Result;
+import com.sjy.insurance.util.ResultGenerator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -25,22 +27,31 @@ public class CustomerController {
 
     @ApiOperation("查询全部顾客")
     @GetMapping("/apis/customer/select/all")
-    public List<CustomerUser> getAll () {
+    public Result getAll () {
         List<CustomerUser> customerUserList  = customerLoginService.getAllCustomerUser();
-        return customerUserList;
+        if (customerUserList.size() > 0) {
+            return ResultGenerator.getSuccessResult("查询成功", customerUserList);
+        }
+        return ResultGenerator.getFailResult("没有顾客");
     }
 
     @ApiOperation("顾客登陆")
     @PostMapping("/apis/customer/login")
-    public String queryCustomer(@RequestBody LoginUser loginUser) {
+    public Result queryCustomer(@RequestBody LoginUser loginUser) {
         int result = customerLoginService.login(loginUser);
-        return result > 0 ? "成功" : "失败";
+        if (result > 0) {
+            return ResultGenerator.getSuccessResult("成功");
+        }
+        return ResultGenerator.getFailResult("没有此用户");
     }
 
     @ApiOperation("顾客注册")
     @PostMapping("/apis/customer/register")
-    public String registerCustomer(@RequestBody CustomerUser customerUser) {
+    public Result registerCustomer(@RequestBody CustomerUser customerUser) {
         int result = customerLoginService.registerCustomer(customerUser);
-        return result > 0 ? "成功" : "失败";
+        if (result > 0) {
+            return ResultGenerator.getSuccessResult("成功注册", customerUser);
+        }
+        return ResultGenerator.getFailResult("没有注册成功");
     }
 }
