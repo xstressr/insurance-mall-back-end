@@ -28,9 +28,6 @@
         <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources"></sqlMapGenerator>
         <!-- 生成mapper xml对应dao接口，放到com.songguoliang.springboot.mapper包下-->
         <javaClientGenerator targetPackage="com.sjy.insurance.dao" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
-
-
-
         <table tableName="t_insurance_mall_admin_user" domainObjectName="AdminUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
         <table tableName="t_insurance_mall_goods_info" domainObjectName="Goods" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
         <table tableName="t_insurance_mall_thirdparty" domainObjectName="ThirdParty" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
