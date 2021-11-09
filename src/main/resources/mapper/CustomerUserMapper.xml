@@ -40,6 +40,12 @@
       <include refid="Base_Column_List" />
       from t_insurance_mall_user
     </select>
+    <select id="selectByLoginNameAndLoginPassword" parameterType="java.lang.String" resultType="java.lang.Integer">
+      select
+      <include refid="Base_Column_List" />
+      from t_insurance_mall_user
+      where login_name = #{loginName} and login_password = #{loginPassword}
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--
       WARNING - @mbg.generated

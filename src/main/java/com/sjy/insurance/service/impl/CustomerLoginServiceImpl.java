@@ -18,4 +18,9 @@ public class CustomerLoginServiceImpl implements CustomerLoginService {
     public List<CustomerUser> getAllCustomerUser() {
         return customerUserMapper.selectAll();
     }
+
+    @Override
+    public int getCustomerByLoginNameAndPassword(String loginName, String loginPassword) {
+        return customerUserMapper.selectByLoginNameAndLoginPassword(loginName, loginPassword);
+    }
 }

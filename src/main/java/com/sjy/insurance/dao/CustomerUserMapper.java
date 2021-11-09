@@ -55,7 +55,10 @@ public interface CustomerUserMapper {
 
     /**
      * code by sonder
+     * 查询所有的顾客
+     * @return
      */
-
     List<CustomerUser> selectAll();
+
+    int selectByLoginNameAndLoginPassword(String loginName, String loginPassword);
 }
