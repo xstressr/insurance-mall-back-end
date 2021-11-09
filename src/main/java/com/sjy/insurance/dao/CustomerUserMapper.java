@@ -54,11 +54,14 @@ public interface CustomerUserMapper {
     int updateByPrimaryKey(CustomerUser record);
 
     /**
-     * code by sonder
-     * 查询所有的顾客
+     * coder by sonder
+     */
+
+    /**
+     * 请求所有的顾客
      * @return
      */
-    List<CustomerUser> selectAll();
+    List<CustomerUser> queryAll();
 
-    int selectByLoginNameAndLoginPassword(String loginName, String loginPassword);
+    int login(String loginName, String loginPassword);
 }
