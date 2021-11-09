@@ -2,17 +2,15 @@ package com.sjy.insurance.service;
 
 import com.sjy.insurance.bo.LoginUser;
 import com.sjy.insurance.entity.AdminUser;
+import com.sjy.insurance.entity.ThirdParty;
+
 import java.util.List;
 
-public interface AdminUserService {
+public interface ThirdPartyService {
 
-    /**
-     * 查询所有管理员用户
-     * @return
-     */
-    List<AdminUser> queryAllAdminUser();
+    List<ThirdParty> queryAllThird();
 
     int login(LoginUser loginUser);
 
-    int register(AdminUser adminUser);
+    int register(ThirdParty thirdParty);
 }

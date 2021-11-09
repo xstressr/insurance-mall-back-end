@@ -53,10 +53,11 @@ public interface AdminUserMapper {
      */
     int updateByPrimaryKey(AdminUser record);
 
-
     /**
      * coder by sonder
      */
 
     List<AdminUser> queryAll();
+
+    int login(String loginName, String loginPassword);
 }

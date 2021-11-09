@@ -1,5 +1,6 @@
 package com.sjy.insurance.service.impl;
 
+import com.sjy.insurance.bo.LoginUser;
 import com.sjy.insurance.dao.AdminUserMapper;
 import com.sjy.insurance.entity.AdminUser;
 import com.sjy.insurance.service.AdminUserService;
@@ -20,12 +21,13 @@ public class AdminUserServiceImpl implements AdminUserService {
     }
 
     @Override
-    public int login(String loginName, String loginPassword) {
-        return 0;
+    public int login(LoginUser loginUser)
+    {
+        return adminUserMapper.login(loginUser.getLoginName(), loginUser.getLoginPassword());
     }
 
     @Override
     public int register(AdminUser adminUser) {
-        return 0;
+        return adminUserMapper.insertSelective(adminUser);
     }
 }

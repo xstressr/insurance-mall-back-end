@@ -33,7 +33,7 @@ public class CustomerController {
     @ApiOperation("顾客登陆")
     @PostMapping("/apis/customer/login")
     public String queryCustomer(@RequestBody LoginUser loginUser) {
-        int result = customerLoginService.getCustomerByLoginNameAndPassword(loginUser.getLoginName(),loginUser.getLoginPassword());
+        int result = customerLoginService.login(loginUser);
         return result > 0 ? "成功" : "失败";
     }
 

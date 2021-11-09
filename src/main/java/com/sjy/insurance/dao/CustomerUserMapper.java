@@ -57,10 +57,6 @@ public interface CustomerUserMapper {
      * coder by sonder
      */
 
-    /**
-     * 请求所有的顾客
-     * @return
-     */
     List<CustomerUser> queryAll();
 
     int login(String loginName, String loginPassword);

@@ -1,5 +1,6 @@
 package com.sjy.insurance.service.impl;
 
+import com.sjy.insurance.bo.LoginUser;
 import com.sjy.insurance.dao.CustomerUserMapper;
 import com.sjy.insurance.entity.CustomerUser;
 import com.sjy.insurance.service.CustomerService;
@@ -20,8 +21,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public int getCustomerByLoginNameAndPassword(String loginName, String loginPassword) {
-        return customerUserMapper.login(loginName, loginPassword);
+    public int login(LoginUser loginUser) {
+        return customerUserMapper.login(loginUser.getLoginName(), loginUser.getLoginPassword());
     }
     @Override
     public int registerCustomer(CustomerUser customerUser) {

@@ -33,6 +33,17 @@
     from t_insurance_mall_thirdparty
     where seller_user_id = #{sellerUserId,jdbcType=INTEGER}
   </select>
+    <select id="queryAll" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from t_insurance_mall_thirdparty
+    </select>
+  <select id="login" resultType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from t_insurance_mall_thirdparty
+    where login_name = #{loginName} and login_password = #{loginPassword}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbg.generated
