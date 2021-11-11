@@ -5,6 +5,8 @@ import com.sjy.insurance.entity.AdminUser;
 import com.sjy.insurance.entity.ThirdParty;
 import com.sjy.insurance.service.AdminUserService;
 import com.sjy.insurance.service.ThirdPartyService;
+import com.sjy.insurance.util.Result;
+import com.sjy.insurance.util.ResultGenerator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -25,9 +27,12 @@ public class ThirdPartyController {
 
     @ApiOperation("第三方登陆")
     @PostMapping("/apis/third/login")
-    public String login(@RequestBody LoginUser loginUser) {
+    public Result login(@RequestBody LoginUser loginUser) {
         int result = thirdPartyService.login(loginUser);
-        return result > 0 ? "成功" : "失败";
+        if(result > 0) {
+            return ResultGenerator.getSuccessResult("登陆成功");
+        }
+        return ResultGenerator.getErrorResult(500, "没有这用户名");
     }
 
     @ApiOperation("第三方注册")
@@ -40,8 +45,11 @@ public class ThirdPartyController {
 
     @ApiOperation("第三方所有查询")
     @GetMapping("/apis/third/queryAll")
-    public List<ThirdParty> queryAll() {
+    public Result queryAll() {
         List<ThirdParty> thirdPartyList = thirdPartyService.queryAllThird();
-        return thirdPartyList;
+        if (thirdPartyList.size() > 0) {
+            return ResultGenerator.getSuccessResult(thirdPartyList);
+        }
+        return ResultGenerator.getSuccessResult("没有用户");
     }
 }
