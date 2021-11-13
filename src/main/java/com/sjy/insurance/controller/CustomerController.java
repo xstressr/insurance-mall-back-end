@@ -10,23 +10,21 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @Slf4j
 @Api(tags = "顾客API")
+@RequestMapping("/api/customer")
 public class CustomerController {
 
     @Autowired
     private CustomerService customerLoginService;
 
     @ApiOperation("查询全部顾客")
-    @GetMapping("/apis/customer/select/all")
+    @GetMapping("/select/all")
     public Result getAll () {
         List<CustomerUser> customerUserList  = customerLoginService.getAllCustomerUser();
         if (customerUserList.size() > 0) {
@@ -36,7 +34,7 @@ public class CustomerController {
     }
 
     @ApiOperation("顾客登陆")
-    @PostMapping("/apis/customer/login")
+    @PostMapping("/login")
     public Result queryCustomer(@RequestBody LoginUser loginUser) {
         int result = customerLoginService.login(loginUser);
         if (result > 0) {
@@ -46,7 +44,7 @@ public class CustomerController {
     }
 
     @ApiOperation("顾客注册")
-    @PostMapping("/apis/customer/register")
+    @PostMapping("/register")
     public Result registerCustomer(@RequestBody CustomerUser customerUser) {
         int result = customerLoginService.registerCustomer(customerUser);
         if (result > 0) {

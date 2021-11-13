@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,13 +18,14 @@ import java.util.List;
 @RestController
 @Slf4j
 @Api(tags = "保单")
+@RequestMapping("/api/slips")
 public class GuarenteeSlipController {
 
     @Autowired
     private GuarenteeSlipService guarenteeSlipService;
 
     @ApiOperation("查询所有保单")
-    @GetMapping("/apis/slips/getAll")
+    @GetMapping("/getAll")
     public Result getAll() {
         List<GuarenteeSlip> guarenteeSlipList = guarenteeSlipService.getAll();
         if (guarenteeSlipList.size() > 0) {

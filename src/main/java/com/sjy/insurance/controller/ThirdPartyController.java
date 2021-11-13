@@ -11,22 +11,20 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @Slf4j
 @Api(tags = "第三方API")
+@RequestMapping("/api/third")
 public class ThirdPartyController {
     @Autowired
     private ThirdPartyService thirdPartyService;
 
     @ApiOperation("第三方登陆")
-    @PostMapping("/apis/third/login")
+    @PostMapping("/login")
     public Result login(@RequestBody LoginUser loginUser) {
         int result = thirdPartyService.login(loginUser);
         if(result > 0) {
@@ -36,7 +34,7 @@ public class ThirdPartyController {
     }
 
     @ApiOperation("第三方注册")
-    @PostMapping("/apis/third/register")
+    @PostMapping("/register")
     public String register(@RequestBody ThirdParty thirdParty) {
         int result =  thirdPartyService.register(thirdParty);
         return result > 0 ? "成功" : "失败";
@@ -44,7 +42,7 @@ public class ThirdPartyController {
 
 
     @ApiOperation("第三方所有查询")
-    @GetMapping("/apis/third/queryAll")
+    @GetMapping("/queryAll")
     public Result queryAll() {
         List<ThirdParty> thirdPartyList = thirdPartyService.queryAllThird();
         if (thirdPartyList.size() > 0) {
