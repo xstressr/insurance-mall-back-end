@@ -51,6 +51,9 @@ public class AdminUser implements Serializable {
     @ApiModelProperty("管理员登陆密码")
     private String loginPassword;
 
+    @ApiModelProperty("管理员注册手机号")
+    private String loginMobile;
+
     /**
      * Database Column Remarks:
      *   管理员显示昵称
@@ -103,6 +106,9 @@ public class AdminUser implements Serializable {
      *
      * @mbg.generated
      */
+
+
+
     public Long getAdminUserId() {
         return adminUserId;
     }
@@ -237,5 +243,13 @@ public class AdminUser implements Serializable {
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getLoginMobile() {
+        return loginMobile;
+    }
+
+    public void setLoginMobile(String loginMobile) {
+        this.loginMobile = loginMobile;
     }
 }

@@ -35,9 +35,12 @@ public class ThirdPartyController {
 
     @ApiOperation("第三方注册")
     @PostMapping("/register")
-    public String register(@RequestBody ThirdParty thirdParty) {
+    public Result register(@RequestBody ThirdParty thirdParty) {
         int result =  thirdPartyService.register(thirdParty);
-        return result > 0 ? "成功" : "失败";
+        if (result > 0) {
+            return ResultGenerator.getSuccessResult("成功注册", thirdParty);
+        }
+        return ResultGenerator.getFailResult("没有注册成功");
     }
 
 

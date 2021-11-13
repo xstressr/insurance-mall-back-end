@@ -11,6 +11,7 @@
     <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
     <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
     <result column="locked" jdbcType="TINYINT" property="locked" />
+    <result column="login_mobile" jdbcType="VARCHAR" property="loginMobile" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
   <sql id="Base_Column_List">

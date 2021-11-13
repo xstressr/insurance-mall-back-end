@@ -34,9 +34,12 @@ public class AdminUserController {
 
     @ApiOperation("管理员注册")
     @PostMapping("/register")
-    public String registerAdminUser(@RequestBody AdminUser adminUser) {
+    public Result registerAdminUser(@RequestBody AdminUser adminUser) {
         int result =  adminUserService.register(adminUser);
-        return result > 0 ? "成功" : "失败";
+        if (result > 0) {
+            return ResultGenerator.getSuccessResult("成功注册", adminUser);
+        }
+        return ResultGenerator.getFailResult("没有注册成功");
     }
 
 
