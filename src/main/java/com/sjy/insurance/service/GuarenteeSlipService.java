@@ -14,4 +14,6 @@ public interface GuarenteeSlipService {
     int insertGuarenteeSlip(GuarenteeSlip guarenteeSlip);
 
     int deleteGuarenteeSlip(int id);
+
+    List<GuarenteeSlip> getAllByLoginName(String loginName);
 }

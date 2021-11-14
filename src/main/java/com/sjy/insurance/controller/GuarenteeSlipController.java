@@ -8,10 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,17 @@ public class GuarenteeSlipController {
     @GetMapping("/getAll")
     public Result getAll() {
         List<GuarenteeSlip> guarenteeSlipList = guarenteeSlipService.getAll();
+        if (guarenteeSlipList.size() > 0) {
+            return ResultGenerator.getSuccessResult("查询成功", guarenteeSlipList);
+        }
+        return ResultGenerator.getFailResult("没有保单");
+    }
+
+    //TODO:编写通过loginName查询
+    @ApiOperation("通过登陆账号查询保单")
+    @GetMapping("/getAllByLoginName")
+    public Result getAllByLoginName(@RequestParam String loginName) {
+        List<GuarenteeSlip> guarenteeSlipList = guarenteeSlipService.getAllByLoginName(loginName);
         if (guarenteeSlipList.size() > 0) {
             return ResultGenerator.getSuccessResult("查询成功", guarenteeSlipList);
         }

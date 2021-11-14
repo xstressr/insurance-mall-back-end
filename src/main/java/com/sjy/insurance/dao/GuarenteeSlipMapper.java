@@ -1,6 +1,7 @@
 package com.sjy.insurance.dao;
 
 import com.sjy.insurance.entity.GuarenteeSlip;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -54,4 +55,7 @@ public interface GuarenteeSlipMapper {
     int updateByPrimaryKey(GuarenteeSlip record);
 
     List<GuarenteeSlip> queryAll();
+
+    @Select("select * from t_insurance_guarantee_slip where owner = #{loginName}")
+    List<GuarenteeSlip> queryAllByOwner(String loginName);
 }
