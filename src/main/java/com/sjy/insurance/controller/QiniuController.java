@@ -13,6 +13,7 @@ import java.io.IOException;
 @RestController
 @Api(tags = "七牛云上传")
 @Slf4j
+@RequestMapping("/api")
 public class QiniuController {
 
     @Autowired

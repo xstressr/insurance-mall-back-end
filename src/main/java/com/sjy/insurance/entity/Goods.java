@@ -53,7 +53,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    private Long goodsCategoryId;
+    private Integer goodsCategoryId;
 
     /**
      * Database Column Remarks:
@@ -264,7 +264,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public Long getGoodsCategoryId() {
+    public Integer getGoodsCategoryId() {
         return goodsCategoryId;
     }
 
@@ -276,7 +276,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public void setGoodsCategoryId(Long goodsCategoryId) {
+    public void setGoodsCategoryId(Integer goodsCategoryId) {
         this.goodsCategoryId = goodsCategoryId;
     }
 

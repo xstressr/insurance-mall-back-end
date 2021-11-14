@@ -54,8 +54,10 @@ public interface CustomerUserMapper {
     int updateByPrimaryKey(CustomerUser record);
 
     /**
-     * code by sonder
+     * coder by sonder
      */
 
-    List<CustomerUser> selectAll();
+    List<CustomerUser> queryAll();
+
+    int login(String loginName, String loginPassword);
 }

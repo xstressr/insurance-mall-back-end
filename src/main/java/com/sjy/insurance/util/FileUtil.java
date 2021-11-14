@@ -1,4 +1,4 @@
-package com.sjy.insurance.common.util;
+package com.sjy.insurance.util;
 
 public class FileUtil {
 
