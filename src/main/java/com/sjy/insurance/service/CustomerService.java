@@ -11,4 +11,6 @@ public interface CustomerService {
     int login(LoginUser loginUser);
 
     int registerCustomer(CustomerUser customerUser);
+
+    int updatePassword(LoginUser loginUser);
 }

@@ -33,4 +33,9 @@ public class GuarenteeSlipServiceImpl implements GuarenteeSlipService {
     public int deleteGuarenteeSlip(int id) {
         return guarenteeSlipMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public List<GuarenteeSlip> getAllByLoginName(String loginName) {
+        return guarenteeSlipMapper.queryAllByOwner(loginName);
+    }
 }

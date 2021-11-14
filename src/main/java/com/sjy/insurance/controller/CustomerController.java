@@ -52,4 +52,14 @@ public class CustomerController {
         }
         return ResultGenerator.getFailResult("没有注册成功");
     }
+
+    @ApiOperation("密码修改")
+    @PostMapping("/updatePass")
+    public Result updatePassword(@RequestBody LoginUser loginUser) {
+        int result = customerLoginService.updatePassword(loginUser);
+        if (result > 0) {
+            return ResultGenerator.getSuccessResult("成功更新密码");
+        }
+        return ResultGenerator.getFailResult("没有更新成功");
+    }
 }

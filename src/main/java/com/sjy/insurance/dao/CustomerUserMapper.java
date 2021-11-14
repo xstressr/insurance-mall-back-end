@@ -1,6 +1,9 @@
 package com.sjy.insurance.dao;
 
 import com.sjy.insurance.entity.CustomerUser;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -60,4 +63,7 @@ public interface CustomerUserMapper {
     List<CustomerUser> queryAll();
 
     int login(String loginName, String loginPassword);
+
+    @Update("update t_insurance_mall_user set login_password=#{loginPassword}  where login_name=#{loginName} ")
+    int updateLoginPassword(@Param("loginPassword") String loginPasword, @Param("loginName") String loginName);
 }

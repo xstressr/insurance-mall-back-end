@@ -28,4 +28,9 @@ public class CustomerServiceImpl implements CustomerService {
     public int registerCustomer(CustomerUser customerUser) {
         return customerUserMapper.insertSelective(customerUser);
     }
+
+    @Override
+    public int updatePassword(LoginUser loginUser) {
+        return customerUserMapper.updateLoginPassword(loginUser.getLoginPassword(), loginUser.getLoginName());
+    }
 }
