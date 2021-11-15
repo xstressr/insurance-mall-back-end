@@ -15,13 +15,14 @@ import java.util.List;
 @RestController
 @Slf4j
 @Api(tags = "商品详情")
+@RequestMapping("/api/goods")
 public class GoodsController {
 
     @Autowired
     private GoodsService goodsService;
 
     @ApiOperation("获取所有产品")
-    @GetMapping("/apis/goods/getAll")
+    @GetMapping("/getAll")
     public Result getAll() {
         List<Goods> goodsList = goodsService.getAllGoods();
         if (goodsList.size() != 0) {
@@ -31,7 +32,7 @@ public class GoodsController {
     }
 
     @ApiOperation("通过登陆用户获取所有产品")
-    @GetMapping("/apis/goods/getAllByloginName")
+    @GetMapping("/getAllByloginName")
     public Result getAllByLoginNamea(@RequestParam String loginName) {
         List<Goods> goodsList = goodsService.getAllGoodsByLoginUser(loginName);
         if (goodsList.size() != 0) {
@@ -41,7 +42,7 @@ public class GoodsController {
     }
 
     @ApiOperation("插入产品")
-    @PostMapping("/apis/goods/insert")
+    @PostMapping("/insert")
     public Result insertGood(@RequestBody Goods goods) {
         int result = goodsService.insertGoods(goods);
         if (result > 0) {
