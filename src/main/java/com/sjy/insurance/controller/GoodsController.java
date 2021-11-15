@@ -8,10 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +26,16 @@ public class GoodsController {
         List<Goods> goodsList = goodsService.getAllGoods();
         if (goodsList.size() != 0) {
             return ResultGenerator.getSuccessResult(goodsList);
+        }
+        return ResultGenerator.getFailResult("没有产品");
+    }
+
+    @ApiOperation("通过登陆用户获取所有产品")
+    @GetMapping("/apis/goods/getAllByloginName")
+    public Result getAllByLoginNamea(@RequestParam String loginName) {
+        List<Goods> goodsList = goodsService.getAllGoodsByLoginUser(loginName);
+        if (goodsList.size() != 0) {
+            return ResultGenerator.getSuccessResult("用户：" + loginName + " 产品如下",goodsList);
         }
         return ResultGenerator.getFailResult("没有产品");
     }

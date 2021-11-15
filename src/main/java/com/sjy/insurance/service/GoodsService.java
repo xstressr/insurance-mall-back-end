@@ -8,6 +8,9 @@ public interface GoodsService {
 
     List<Goods> getAllGoods();
 
+    List<Goods> getAllGoodsByLoginUser(String loginName);
+
+
     int insertGoods(Goods goods);
 
     int deleteGoods(Goods goods);

@@ -14,6 +14,10 @@ public class GoodsServiceImpl implements GoodsService {
     @Autowired
     private GoodsMapper goodsMapper;
 
+    @Override
+    public List<Goods> getAllGoodsByLoginUser(String loginName) {
+        return goodsMapper.queryAllByCreateUser(loginName);
+    }
 
     @Override
     public List<Goods> getAllGoods() {

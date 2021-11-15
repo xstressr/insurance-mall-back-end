@@ -1,6 +1,7 @@
 package com.sjy.insurance.dao;
 
 import com.sjy.insurance.entity.Goods;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -66,4 +67,7 @@ public interface GoodsMapper {
      */
 
     List<Goods> queryAll();
+
+//    @Select("select * from t_insurance_mall_goods_info where create_user = #{loginName}")
+    List<Goods> queryAllByCreateUser(String loginName);
 }

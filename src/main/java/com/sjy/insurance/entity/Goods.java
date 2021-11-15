@@ -130,7 +130,8 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer createUser;
+    //TODO:修改了类型
+    private String createUser;
 
     /**
      * Database Column Remarks:
@@ -432,7 +433,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public Integer getCreateUser() {
+    public String getCreateUser() {
         return createUser;
     }
 
@@ -444,7 +445,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public void setCreateUser(Integer createUser) {
+    public void setCreateUser(String createUser) {
         this.createUser = createUser;
     }
 
