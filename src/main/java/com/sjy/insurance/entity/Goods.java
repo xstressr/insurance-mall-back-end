@@ -153,7 +153,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer updateUser;
+    private String updateUser;
 
     /**
      * Database Column Remarks:
@@ -481,7 +481,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public Integer getUpdateUser() {
+    public String getUpdateUser() {
         return updateUser;
     }
 
@@ -493,7 +493,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public void setUpdateUser(Integer updateUser) {
+    public void setUpdateUser(String updateUser) {
         this.updateUser = updateUser;
     }
 

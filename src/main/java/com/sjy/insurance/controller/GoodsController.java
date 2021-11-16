@@ -50,4 +50,16 @@ public class GoodsController {
         }
         return ResultGenerator.getFailResult("插入失败");
     }
+
+    @ApiOperation("修改产品状态")
+    @GetMapping("/updateStatus")
+    public Result updateGoodStatus(@RequestParam Integer status,
+                                   @RequestParam String goodName)
+    {
+        int result = goodsService.updateGoodStatus(status, goodName);
+        if (result > 0) {
+            return ResultGenerator.getSuccessResult("修改状态成功");
+        }
+        return ResultGenerator.getFailResult("修改状态失败");
+    }
 }

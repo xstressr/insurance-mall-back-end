@@ -10,6 +10,8 @@ public interface GoodsService {
 
     List<Goods> getAllGoodsByLoginUser(String loginName);
 
+    int updateGoodStatus(int status, String goodName);
+
 
     int insertGoods(Goods goods);
 

@@ -34,4 +34,9 @@ public class GoodsServiceImpl implements GoodsService {
     public int deleteGoods(Goods goods) {
         return 0;
     }
+
+    @Override
+    public int updateGoodStatus(int status, String goodName) {
+        return goodsMapper.updateStatusByGoodName(status, goodName);
+    }
 }
