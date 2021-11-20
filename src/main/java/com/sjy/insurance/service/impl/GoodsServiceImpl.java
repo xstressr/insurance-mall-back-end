@@ -1,5 +1,6 @@
 package com.sjy.insurance.service.impl;
 
+import com.sjy.insurance.bo.GoodsAbbre;
 import com.sjy.insurance.dao.GoodsMapper;
 import com.sjy.insurance.entity.Goods;
 import com.sjy.insurance.service.GoodsService;
@@ -17,6 +18,11 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<Goods> getAllGoodsByLoginUser(String loginName) {
         return goodsMapper.queryAllByCreateUser(loginName);
+    }
+
+    @Override
+    public List<GoodsAbbre> getAllGoodsAbbreByLoginUser(String loginName) {
+        return goodsMapper.queryAllAbbreByCreateUser(loginName);
     }
 
     @Override

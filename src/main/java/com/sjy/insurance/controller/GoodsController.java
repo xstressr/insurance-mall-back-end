@@ -1,5 +1,6 @@
 package com.sjy.insurance.controller;
 
+import com.sjy.insurance.bo.GoodsAbbre;
 import com.sjy.insurance.entity.Goods;
 import com.sjy.insurance.service.GoodsService;
 import com.sjy.insurance.util.Result;
@@ -33,8 +34,18 @@ public class GoodsController {
 
     @ApiOperation("通过登陆用户获取所有产品")
     @GetMapping("/getAllByloginName")
-    public Result getAllByLoginNamea(@RequestParam String loginName) {
+    public Result getAllByLoginName(@RequestParam String loginName) {
         List<Goods> goodsList = goodsService.getAllGoodsByLoginUser(loginName);
+        if (goodsList.size() != 0) {
+            return ResultGenerator.getSuccessResult("用户：" + loginName + " 产品如下",goodsList);
+        }
+        return ResultGenerator.getFailResult("没有产品");
+    }
+
+    @ApiOperation("通过登陆用户获取所有产品的缩略信息")
+    @GetMapping("/getAllAbbreByloginName")
+    public Result getAllAbbreByLoginName(@RequestParam String loginName) {
+        List<GoodsAbbre> goodsList = goodsService.getAllGoodsAbbreByLoginUser(loginName);
         if (goodsList.size() != 0) {
             return ResultGenerator.getSuccessResult("用户：" + loginName + " 产品如下",goodsList);
         }

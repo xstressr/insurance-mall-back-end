@@ -28,6 +28,18 @@
     -->
     <result column="goods_detail_content" jdbcType="LONGVARCHAR" property="goodsDetailContent" />
   </resultMap>
+<!--
+    writed by myself
+-->
+  <resultMap id="GoodsAbbreMap" type="com.sjy.insurance.bo.GoodsAbbre">
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_category_id" jdbcType="INTEGER" property="goodsCategoryId" />
+    <result column="goods_cover_img" jdbcType="VARCHAR" property="goodsCoverImg" />
+    <result column="goods_sell_status" jdbcType="TINYINT" property="goodsSellStatus" />
+  </resultMap>
+  <sql id="Goods_Column_Abbre_List">
+    goods_name, goods_category_id, goods_cover_img, goods_sell_status
+  </sql>
   <sql id="Base_Column_List">
     <!--
       WARNING - @mbg.generated
@@ -68,6 +80,12 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
+    from t_insurance_mall_goods_info
+    where create_user = #{loginName}
+  </select>
+  <select id="queryAllAbbreByCreateUser" parameterType="java.lang.String" resultMap="GoodsAbbreMap">
+    select
+    <include refid="Goods_Column_Abbre_List" />
     from t_insurance_mall_goods_info
     where create_user = #{loginName}
   </select>

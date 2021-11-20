@@ -1,5 +1,6 @@
 package com.sjy.insurance.dao;
 
+import com.sjy.insurance.bo.GoodsAbbre;
 import com.sjy.insurance.entity.Goods;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -71,6 +72,8 @@ public interface GoodsMapper {
 
 //    @Select("select * from t_insurance_mall_goods_info where create_user = #{loginName}")
     List<Goods> queryAllByCreateUser(String loginName);
+
+    List<GoodsAbbre> queryAllAbbreByCreateUser(String loginName);
 
 
     @Update("update t_insurance_mall_goods_info set goods_sell_status = #{status} where goods_name = #{goodName}")
