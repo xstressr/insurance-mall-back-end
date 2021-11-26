@@ -30,8 +30,9 @@
         <javaClientGenerator targetPackage="com.sjy.insurance.dao" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
 
 
+       <table tableName="t_insurance_topline" domainObjectName="TopLine" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
 
-       <table tableName="t_insurance_guarantee_slip" domainObjectName="GuarenteeSlip" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+<!--       <table tableName="t_insurance_guarantee_slip" domainObjectName="GuarenteeSlip" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>-->
     </context>
 </generatorConfiguration>
 
