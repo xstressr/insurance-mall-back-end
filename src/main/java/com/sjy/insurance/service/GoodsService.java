@@ -20,4 +20,6 @@ public interface GoodsService {
 
     int deleteGoods(Goods goods);
 
+    Goods queryGoodsDetail(String goodName);
+
 }

@@ -78,4 +78,7 @@ public interface GoodsMapper {
 
     @Update("update t_insurance_mall_goods_info set goods_sell_status = #{status} where goods_name = #{goodName}")
     int updateStatusByGoodName(int status, String goodName);
+
+//    @Select("select * from t_insurance_mall_goods_info where goods_name=#{goodName}")
+    Goods queryGoodsDetail(String goodName);
 }

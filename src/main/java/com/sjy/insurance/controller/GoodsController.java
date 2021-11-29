@@ -73,4 +73,12 @@ public class GoodsController {
         }
         return ResultGenerator.getFailResult("修改状态失败");
     }
+
+    @ApiOperation("查询保险产品详情")
+    @GetMapping("/detail")
+    public Result getGoodDetails(@RequestParam String goodName) {
+        log.info(goodName);
+        Goods goods = goodsService.queryGoodsDetail(goodName);
+        return ResultGenerator.getSuccessResult("产品详情如下", goods);
+    }
 }

@@ -35,7 +35,12 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsMapper.insertSelective(goods);
     }
 
-    //TODO: 删除的话，我的思考是，保单不能删除，所以所谓的删除就是update某个status字段，如果这个字段为0就是没删，反之就是删除
+    @Override
+    public Goods queryGoodsDetail(String goodName) {
+        return goodsMapper.queryGoodsDetail(goodName);
+    }
+
+    //TODO: 删除的话，我的思考是，保单不能删除，所以所谓的删除就是update某个status字段，如果这个字段为0就是没删，反之就是删除,已完成
     @Override
     public int deleteGoods(Goods goods) {
         return 0;
