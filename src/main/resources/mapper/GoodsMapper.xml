@@ -20,6 +20,8 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="claim_amount" jdbcType="INTEGER" property="claimAmount" />
+    <result column="deadline" jdbcType="VARCHAR" property="deadline" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sjy.insurance.entity.Goods">
     <!--
@@ -47,7 +49,7 @@
     -->
     goods_id, goods_name, goods_intro, goods_category_id, goods_cover_img, goods_carousel, 
     original_price, selling_price, tag, goods_sell_status, create_user, create_time, 
-    update_user, update_time
+    update_user, update_time, claim_amount, deadline
   </sql>
   <sql id="Blob_Column_List">
     <!--
@@ -115,13 +117,14 @@
       goods_category_id, goods_cover_img, goods_carousel, 
       original_price, selling_price, tag, 
       goods_sell_status, create_user, create_time, 
-      update_user, update_time, goods_detail_content
+      update_user, update_time, goods_detail_content, claim_amount, deadline
       )
     values (#{goodsId,jdbcType=BIGINT}, #{goodsName,jdbcType=VARCHAR}, #{goodsIntro,jdbcType=VARCHAR}, 
       #{goodsCategoryId,jdbcType=INTEGER}, #{goodsCoverImg,jdbcType=VARCHAR}, #{goodsCarousel,jdbcType=VARCHAR}, 
       #{originalPrice,jdbcType=INTEGER}, #{sellingPrice,jdbcType=INTEGER}, #{tag,jdbcType=VARCHAR}, 
       #{goodsSellStatus,jdbcType=TINYINT}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{goodsDetailContent,jdbcType=LONGVARCHAR}
+      #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{goodsDetailContent,jdbcType=LONGVARCHAR},
+      #{claimAmount,jdbcType=INTEGER}, #{deadline,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.sjy.insurance.entity.Goods">
@@ -176,6 +179,12 @@
       <if test="goodsDetailContent != null">
         goods_detail_content,
       </if>
+      <if test="claimAmount != null">
+        claim_amount,
+      </if>
+      <if test="deadline != null">
+        deadline,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="goodsId != null">
@@ -223,6 +232,14 @@
       <if test="goodsDetailContent != null">
         #{goodsDetailContent,jdbcType=LONGVARCHAR},
       </if>
+      <if test="claimAmount != null">
+        #{claimAmount,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=LONGVARCHAR},
+      </if>
+
+
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.sjy.insurance.entity.Goods">

@@ -99,6 +99,10 @@ public class Goods implements Serializable {
      */
     private Integer sellingPrice;
 
+    private Integer claimAmount;
+
+    private String deadline;
+
     /**
      * Database Column Remarks:
      *   保险商品标签
@@ -130,7 +134,6 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    //TODO:修改了类型
     private String createUser;
 
     /**
@@ -543,5 +546,21 @@ public class Goods implements Serializable {
      */
     public void setGoodsDetailContent(String goodsDetailContent) {
         this.goodsDetailContent = goodsDetailContent;
+    }
+
+    public Integer getClaimAmount() {
+        return claimAmount;
+    }
+
+    public void setClaimAmount(Integer claimAmount) {
+        this.claimAmount = claimAmount;
+    }
+
+    public String getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
     }
 }

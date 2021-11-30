@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.sjy.insurance.util.NumberUtil.genOrderNo;
+
 @Service
 public class GuarenteeSlipServiceImpl implements GuarenteeSlipService {
 
@@ -26,6 +28,7 @@ public class GuarenteeSlipServiceImpl implements GuarenteeSlipService {
 
     @Override
     public int insertGuarenteeSlip(GuarenteeSlip guarenteeSlip) {
+        guarenteeSlip.setGuaranteeNo("bd"+genOrderNo());
         return guarenteeSlipMapper.insertSelective(guarenteeSlip);
     }
 

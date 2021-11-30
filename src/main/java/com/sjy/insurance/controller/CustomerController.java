@@ -3,7 +3,9 @@ package com.sjy.insurance.controller;
 
 import com.sjy.insurance.bo.LoginUser;
 import com.sjy.insurance.entity.CustomerUser;
+import com.sjy.insurance.entity.Insurer;
 import com.sjy.insurance.service.CustomerService;
+import com.sjy.insurance.service.InsurerService;
 import com.sjy.insurance.util.Result;
 import com.sjy.insurance.util.ResultGenerator;
 import io.swagger.annotations.Api;
@@ -22,6 +24,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerLoginService;
+
+    @Autowired
+    private InsurerService insurerService;
 
     @ApiOperation("查询全部顾客")
     @GetMapping("/select/all")
@@ -62,4 +67,25 @@ public class CustomerController {
         }
         return ResultGenerator.getFailResult("没有更新成功");
     }
+
+    @ApiOperation("添加保单持有者")
+    @PostMapping("/registerInsurer")
+    public Result registerInsurer(@RequestBody Insurer insurer) {
+        int result = insurerService.insertInsurer(insurer);
+        if (result > 0) {
+            return ResultGenerator.getSuccessResult("成功注册", insurer);
+        }
+        return ResultGenerator.getFailResult("没有注册成功");
+    }
+
+    @ApiOperation("查询账户下所有的保单持有者")
+    @GetMapping("/select/allInsurer")
+    public Result getAllInsurer (@RequestParam String belongAcc) {
+        List<Insurer> insurerList  = insurerService.selectInsurerOfAccount(belongAcc);
+        if (insurerList.size() > 0) {
+            return ResultGenerator.getSuccessResult("查询成功", insurerList);
+        }
+        return ResultGenerator.getFailResult("没有保单持有人");
+    }
+
 }

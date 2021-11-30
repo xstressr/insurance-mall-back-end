@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.sjy.insurance.util.NumberUtil.genOrderNo;
+
 @RestController
 @Slf4j
 @Api(tags = "保单")
@@ -31,7 +33,7 @@ public class GuarenteeSlipController {
         return ResultGenerator.getFailResult("没有保单");
     }
 
-    //TODO:编写通过loginName查询
+
     @ApiOperation("通过登陆账号查询保单")
     @GetMapping("/getAllByLoginName")
     public Result getAllByLoginName(@RequestParam String loginName) {
@@ -43,4 +45,14 @@ public class GuarenteeSlipController {
     }
 
     //TODO:编写插入删除
+    @ApiOperation("插入保单")
+    @PostMapping("/insert")
+    public Result insert(@RequestBody GuarenteeSlip guarenteeSlip) {
+        int result =  guarenteeSlipService.insertGuarenteeSlip(guarenteeSlip);
+        if (result > 0) {
+            return ResultGenerator.getSuccessResult("插入成功", guarenteeSlip);
+        }
+        return ResultGenerator.getFailResult("插入失败");
+    }
+
 }
