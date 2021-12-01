@@ -1,6 +1,9 @@
 package com.sjy.insurance.dao;
 
 import com.sjy.insurance.entity.Claim;
+import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 public interface ClaimMapper {
     /**
@@ -50,4 +53,9 @@ public interface ClaimMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(Claim record);
+
+    @Update("update t_insurance_claim set status = #{status}, resolver=#{resolver}  where guarantee_no = #{guaranteeNo} ")
+    int updateStatusByGoodName(int status,String resolver ,String guaranteeNo);
+
+    List<Claim> selectAllByName(String loginName);
 }

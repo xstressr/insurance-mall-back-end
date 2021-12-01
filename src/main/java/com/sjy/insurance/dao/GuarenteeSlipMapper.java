@@ -56,6 +56,6 @@ public interface GuarenteeSlipMapper {
 
     List<GuarenteeSlip> queryAll();
 
-    @Select("select * from t_insurance_guarantee_slip where owner = #{loginName}")
+//    @Select("select * from t_insurance_guarantee_slip where buyer = #{loginName}")
     List<GuarenteeSlip> queryAllByOwner(String loginName);
 }

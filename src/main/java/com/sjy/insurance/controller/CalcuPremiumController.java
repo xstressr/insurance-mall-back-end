@@ -23,10 +23,10 @@ public class CalcuPremiumController {
 
     @ApiOperation("保费通用计算接口")
     @GetMapping("/common")
-    public float calcu(@RequestParam @ApiParam("初始价格") int baseCount,
-                        @RequestParam @ApiParam("因子：年龄") int age,
-                        @RequestParam @ApiParam("因子：职业类型") int occupationType,
-                       @RequestParam @ApiParam("因子：保险类型") int insuranceType) {
+    public float calcu(@ApiParam(value="初始价格",required = true, example = "1000") @RequestParam int baseCount,
+                       @ApiParam(value="因子：年龄",required = true, example = "60") @RequestParam int age,
+                       @ApiParam(value="因子：职业类型",required = true, example = "1") @RequestParam int occupationType,
+                       @ApiParam(value="因子：保险类型",required = true, example = "1") @RequestParam int insuranceType) {
         return calculateService.calcuPremium(baseCount, occupationType, insuranceType, age);
     }
 
