@@ -10,4 +10,6 @@ public interface ClaimService {
     int updateStatus(int status, String resolver , String goodName);
 
     List<Claim> queryAllByName(String name);
+
+    List<Claim> queryAllByCompany(String name);
 }

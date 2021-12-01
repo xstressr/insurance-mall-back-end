@@ -38,7 +38,14 @@
       select
       <include refid="Base_Column_List" />
       from t_insurance_claim
-      where submitter = #{loginName,jdbcType=INTEGER}
+      where submitter = #{loginName,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAllByCompany" parameterType="java.lang.String" resultMap="BaseResultMap">
+      select
+      cm.*
+      from t_insurance_claim cm
+      LEFT JOIN  t_insurance_guarantee_slip gs on cm.guarantee_no = gs.guarantee_no
+      where gs.company = #{companyName,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--

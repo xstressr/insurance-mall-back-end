@@ -28,4 +28,9 @@ public class ClaimServiceImpl implements ClaimService {
     public List<Claim> queryAllByName(String name) {
         return claimMapper.selectAllByName(name);
     }
+
+    @Override
+    public List<Claim> queryAllByCompany(String name) {
+        return claimMapper.selectAllByCompany(name);
+    }
 }

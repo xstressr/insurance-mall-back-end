@@ -54,4 +54,14 @@ public class ClaimController {
         }
         return ResultGenerator.getFailResult("没有产品");
     }
+
+    @ApiOperation("通过公司获取所有报案")
+    @GetMapping("/getAllByCompanyName")
+    public Result getAllByCompanyName(@RequestParam String companyName) {
+        List<Claim> claimList = claimService.queryAllByCompany(companyName);
+        if (claimList.size() != 0) {
+            return ResultGenerator.getSuccessResult("公司：" + companyName + " 报案如下",claimList);
+        }
+        return ResultGenerator.getFailResult("没有产品");
+    }
 }

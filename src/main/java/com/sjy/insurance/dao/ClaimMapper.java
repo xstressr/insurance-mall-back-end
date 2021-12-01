@@ -58,4 +58,7 @@ public interface ClaimMapper {
     int updateStatusByGoodName(int status,String resolver ,String guaranteeNo);
 
     List<Claim> selectAllByName(String loginName);
+
+    List<Claim> selectAllByCompany(String companyName);
+
 }
