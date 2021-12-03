@@ -15,11 +15,12 @@ public interface GoodsService {
 
     int updateGoodStatus(int status, String goodName);
 
-
     int insertGoods(Goods goods);
 
     int deleteGoods(Goods goods);
 
     Goods queryGoodsDetail(String goodName);
+
+    List<Goods> getAllByType(int type);
 
 }

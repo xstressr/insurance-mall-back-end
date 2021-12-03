@@ -15,7 +15,7 @@ public class TopLineServiceImpl implements TopLineService {
 
     @Override
     public List<TopLine> queryAll() {
-        return topLineMapper.selectAll();
+        return topLineMapper.selectAllLimit();
     }
 
     @Override

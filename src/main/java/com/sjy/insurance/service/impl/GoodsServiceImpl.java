@@ -40,7 +40,7 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsMapper.queryGoodsDetail(goodName);
     }
 
-    //TODO: 删除的话，我的思考是，保单不能删除，所以所谓的删除就是update某个status字段，如果这个字段为0就是没删，反之就是删除,已完成
+
     @Override
     public int deleteGoods(Goods goods) {
         return 0;
@@ -49,5 +49,10 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public int updateGoodStatus(int status, String goodName) {
         return goodsMapper.updateStatusByGoodName(status, goodName);
+    }
+
+    @Override
+    public List<Goods> getAllByType(int type) {
+        return goodsMapper.selectAllByGoodsCategoryId(type);
     }
 }

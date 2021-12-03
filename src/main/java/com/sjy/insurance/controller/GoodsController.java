@@ -32,6 +32,16 @@ public class GoodsController {
         return ResultGenerator.getFailResult("没有产品");
     }
 
+    @ApiOperation("获取不同种类的产品")
+    @GetMapping("/getAllByType")
+    public Result getAllByType(@RequestParam int type) {
+        List<Goods> goodsList = goodsService.getAllByType(type);
+        if (goodsList.size() != 0) {
+            return ResultGenerator.getSuccessResult("种类"+type+"的产品如下: ",goodsList);
+        }
+        return ResultGenerator.getFailResult("没有产品");
+    }
+
     @ApiOperation("通过登陆用户获取所有产品")
     @GetMapping("/getAllByloginName")
     public Result getAllByLoginName(@RequestParam String loginName) {

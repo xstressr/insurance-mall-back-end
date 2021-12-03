@@ -2,6 +2,7 @@ package com.sjy.insurance.dao;
 
 import com.sjy.insurance.bo.GoodsAbbre;
 import com.sjy.insurance.entity.Goods;
+import com.sjy.insurance.entity.GuaranteeTmp;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -81,4 +82,8 @@ public interface GoodsMapper {
 
 //    @Select("select * from t_insurance_mall_goods_info where goods_name=#{goodName}")
     Goods queryGoodsDetail(String goodName);
+
+    int updateTotal(GuaranteeTmp guaranteeTmp);
+
+    List<Goods> selectAllByGoodsCategoryId(int type);
 }

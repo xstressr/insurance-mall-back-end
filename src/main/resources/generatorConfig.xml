@@ -33,7 +33,8 @@
 <!--       <table tableName="t_insurance_topline" domainObjectName="TopLine" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>-->
 <!--       <table tableName="t_insurance_insurer" domainObjectName="Insurer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>-->
 <!--       <table tableName="t_insurance_claim" domainObjectName="Claim" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>-->
-       <table tableName="t_insurance_carousel" domainObjectName="Carousel" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+<!--       <table tableName="t_insurance_carousel" domainObjectName="Carousel" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+       <table tableName="t_insurance_guarantee_tmp" domainObjectName="guaranteeTmp" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
 
 <!--       <table tableName="t_insurance_guarantee_slip" domainObjectName="GuarenteeSlip" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>-->
     </context>

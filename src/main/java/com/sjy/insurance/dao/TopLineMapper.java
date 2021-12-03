@@ -65,6 +65,6 @@ public interface TopLineMapper {
      * select by sonder
      */
 
-    List<TopLine> selectAll();
+    List<TopLine> selectAllLimit();
 
 }

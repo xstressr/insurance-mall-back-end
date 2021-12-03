@@ -103,6 +103,8 @@ public class Goods implements Serializable {
 
     private String deadline;
 
+    private int total;
+
     /**
      * Database Column Remarks:
      *   保险商品标签
@@ -562,5 +564,13 @@ public class Goods implements Serializable {
 
     public void setDeadline(String deadline) {
         this.deadline = deadline;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 }
