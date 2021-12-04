@@ -69,7 +69,7 @@ public interface GoodsMapper {
      * conder by sonder
      */
 
-    List<Goods> queryAll();
+    List<Goods> queryAllUpLimit();
 
 //    @Select("select * from t_insurance_mall_goods_info where create_user = #{loginName}")
     List<Goods> queryAllByCreateUser(String loginName);

@@ -27,7 +27,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> getAllGoods() {
-        return goodsMapper.queryAll();
+        return goodsMapper.queryAllUpLimit();
     }
 
     @Override

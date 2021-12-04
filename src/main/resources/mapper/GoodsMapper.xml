@@ -71,12 +71,13 @@
     from t_insurance_mall_goods_info
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </select>
-    <select id="queryAll" resultMap="ResultMapWithBLOBs">
+    <select id="queryAllUpLimit" resultMap="ResultMapWithBLOBs">
       select
       <include refid="Base_Column_List" />
       ,
       <include refid="Blob_Column_List" />
       from t_insurance_mall_goods_info
+        where  goods_sell_status = 1 limit 9;
     </select>
   <select id="queryAllByCreateUser" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
     select
@@ -106,7 +107,7 @@
     ,
     <include refid="Blob_Column_List" />
     from t_insurance_mall_goods_info
-    where goods_category_id=#{type}  ORDER BY total desc limit 9;
+    where goods_category_id=#{type} and goods_sell_status = 1 ORDER BY total desc limit 9;
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
