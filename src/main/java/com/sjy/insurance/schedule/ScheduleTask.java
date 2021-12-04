@@ -29,7 +29,7 @@ public class ScheduleTask {
 
 
 
-    @Scheduled(fixedRate = 100000)
+    @Scheduled(fixedRate = 10000)
     public void refreshCarousel() {
         System.out.println("任务执行时间：" + LocalDateTime.now());
         carouselMapper.delAll();

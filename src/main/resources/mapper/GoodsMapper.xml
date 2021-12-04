@@ -77,7 +77,7 @@
       ,
       <include refid="Blob_Column_List" />
       from t_insurance_mall_goods_info
-        where  goods_sell_status = 1 limit 9;
+        where  goods_sell_status = 1 order by total desc limit 9;
     </select>
   <select id="queryAllByCreateUser" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
     select

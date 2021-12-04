@@ -22,7 +22,7 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    @ApiOperation("获取所有产品")
+    @ApiOperation("获取所有上架产品")
     @GetMapping("/getAll")
     public Result getAll() {
         List<Goods> goodsList = goodsService.getAllGoods();
