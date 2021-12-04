@@ -1,5 +1,7 @@
 package com.sjy.insurance.dao;
 
+import com.github.pagehelper.Page;
+import com.sjy.insurance.entity.Goods;
 import com.sjy.insurance.entity.TopLine;
 
 import java.util.List;
@@ -66,5 +68,7 @@ public interface TopLineMapper {
      */
 
     List<TopLine> selectAllLimit();
+
+    List<TopLine> findAll();
 
 }

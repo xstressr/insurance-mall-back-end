@@ -58,6 +58,13 @@
     <include refid="Blob_Column_List" />
     from t_insurance_topline order by create_date desc;
   </select>
+    <select id="findAll" resultMap="ResultMapWithBLOBs">
+      select
+      <include refid="Base_Column_List" />
+      ,
+      <include refid="Blob_Column_List" />
+      from t_insurance_topline
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbg.generated

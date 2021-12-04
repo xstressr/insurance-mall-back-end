@@ -3,6 +3,7 @@ package com.sjy.insurance.controller;
 import com.github.pagehelper.IPage;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.sjy.insurance.bo.GoodsAbbre;
 import com.sjy.insurance.dao.GoodsMapper;
 import com.sjy.insurance.entity.Goods;
@@ -102,10 +103,11 @@ public class GoodsController {
 
     @ApiOperation("分页查询")
     @GetMapping("/getGoodsList")
-    public Page<Goods> getGoodsList(@ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
-                                    @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {
+    public PageInfo<Goods> getGoodsList(@ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
+                                        @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        Page<Goods> goods = goodsMapper.findAll();
-        return goods;
+        List<Goods> goods = goodsMapper.findAll();
+        PageInfo<Goods> pageInfo = new PageInfo<>(goods);
+        return pageInfo;
     }
 }
