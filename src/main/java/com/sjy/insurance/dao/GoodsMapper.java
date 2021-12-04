@@ -1,5 +1,6 @@
 package com.sjy.insurance.dao;
 
+import com.github.pagehelper.Page;
 import com.sjy.insurance.bo.GoodsAbbre;
 import com.sjy.insurance.entity.Goods;
 import com.sjy.insurance.entity.GuaranteeTmp;
@@ -86,4 +87,9 @@ public interface GoodsMapper {
     int updateTotal(GuaranteeTmp guaranteeTmp);
 
     List<Goods> selectAllByGoodsCategoryId(int type);
+
+//    @Select("select * from t_insurance_mall_goods_info")
+    Page<Goods> findAll();
+
+
 }

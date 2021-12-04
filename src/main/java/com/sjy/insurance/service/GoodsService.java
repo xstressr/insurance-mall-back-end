@@ -1,5 +1,6 @@
 package com.sjy.insurance.service;
 
+import com.github.pagehelper.Page;
 import com.sjy.insurance.bo.GoodsAbbre;
 import com.sjy.insurance.entity.Goods;
 
@@ -22,5 +23,8 @@ public interface GoodsService {
     Goods queryGoodsDetail(String goodName);
 
     List<Goods> getAllByType(int type);
+
+//    Page<Goods> findAll(int page, int size);
+
 
 }

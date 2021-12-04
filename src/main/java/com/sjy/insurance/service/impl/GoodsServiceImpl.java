@@ -1,5 +1,6 @@
 package com.sjy.insurance.service.impl;
 
+import com.github.pagehelper.Page;
 import com.sjy.insurance.bo.GoodsAbbre;
 import com.sjy.insurance.dao.GoodsMapper;
 import com.sjy.insurance.entity.Goods;
@@ -55,4 +56,9 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> getAllByType(int type) {
         return goodsMapper.selectAllByGoodsCategoryId(type);
     }
+
+//    @Override
+//    public Page<Goods> findAll(int page, int size) {
+//        return null;
+//    }
 }

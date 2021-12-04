@@ -81,3 +81,8 @@ oss:
     secretKey: 5-J_d1GyWhFua2yCdOfc_Uf0ewqmGcM_aHET2ywU # 私钥
     bucketName: jojo00 #存储空间名称
 
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

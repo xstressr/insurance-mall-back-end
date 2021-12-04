@@ -1,12 +1,17 @@
 package com.sjy.insurance.controller;
 
+import com.github.pagehelper.IPage;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.sjy.insurance.bo.GoodsAbbre;
+import com.sjy.insurance.dao.GoodsMapper;
 import com.sjy.insurance.entity.Goods;
 import com.sjy.insurance.service.GoodsService;
 import com.sjy.insurance.util.Result;
 import com.sjy.insurance.util.ResultGenerator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +27,10 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    @ApiOperation("获取所有上架产品")
+    @Autowired
+    private GoodsMapper goodsMapper;
+
+    @ApiOperation("获取所有上架产品前九个")
     @GetMapping("/getAll")
     public Result getAll() {
         List<Goods> goodsList = goodsService.getAllGoods();
@@ -90,5 +98,14 @@ public class GoodsController {
         log.info(goodName);
         Goods goods = goodsService.queryGoodsDetail(goodName);
         return ResultGenerator.getSuccessResult("产品详情如下", goods);
+    }
+
+    @ApiOperation("分页查询")
+    @GetMapping("/getGoodsList")
+    public Page<Goods> getGoodsList(@ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
+                                    @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        Page<Goods> goods = goodsMapper.findAll();
+        return goods;
     }
 }
