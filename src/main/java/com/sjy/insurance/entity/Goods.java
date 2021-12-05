@@ -86,7 +86,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer originalPrice;
+    private Float originalPrice;
 
     /**
      * Database Column Remarks:
@@ -97,9 +97,9 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer sellingPrice;
+    private Float sellingPrice;
 
-    private Integer claimAmount;
+    private Float claimAmount;
 
     private String deadline;
 
@@ -342,7 +342,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public Integer getOriginalPrice() {
+    public Float getOriginalPrice() {
         return originalPrice;
     }
 
@@ -354,7 +354,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public void setOriginalPrice(Integer originalPrice) {
+    public void setOriginalPrice(Float originalPrice) {
         this.originalPrice = originalPrice;
     }
 
@@ -366,7 +366,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public Integer getSellingPrice() {
+    public Float getSellingPrice() {
         return sellingPrice;
     }
 
@@ -378,7 +378,7 @@ public class Goods implements Serializable {
      *
      * @mbg.generated
      */
-    public void setSellingPrice(Integer sellingPrice) {
+    public void setSellingPrice(Float sellingPrice) {
         this.sellingPrice = sellingPrice;
     }
 
@@ -550,11 +550,11 @@ public class Goods implements Serializable {
         this.goodsDetailContent = goodsDetailContent;
     }
 
-    public Integer getClaimAmount() {
+    public Float getClaimAmount() {
         return claimAmount;
     }
 
-    public void setClaimAmount(Integer claimAmount) {
+    public void setClaimAmount(Float claimAmount) {
         this.claimAmount = claimAmount;
     }
 

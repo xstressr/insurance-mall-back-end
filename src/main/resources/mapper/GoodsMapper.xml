@@ -12,15 +12,15 @@
     <result column="goods_category_id" jdbcType="INTEGER" property="goodsCategoryId" />
     <result column="goods_cover_img" jdbcType="VARCHAR" property="goodsCoverImg" />
     <result column="goods_carousel" jdbcType="VARCHAR" property="goodsCarousel" />
-    <result column="original_price" jdbcType="INTEGER" property="originalPrice" />
-    <result column="selling_price" jdbcType="INTEGER" property="sellingPrice" />
+    <result column="original_price" jdbcType="FLOAT" property="originalPrice" />
+    <result column="selling_price" jdbcType="FLOAT" property="sellingPrice" />
     <result column="tag" jdbcType="VARCHAR" property="tag" />
     <result column="goods_sell_status" jdbcType="TINYINT" property="goodsSellStatus" />
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="claim_amount" jdbcType="INTEGER" property="claimAmount" />
+    <result column="claim_amount" jdbcType="FLOAT" property="claimAmount" />
     <result column="deadline" jdbcType="VARCHAR" property="deadline" />
     <result column="total" jdbcType="INTEGER" property="total" />
   </resultMap>
