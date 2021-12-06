@@ -43,10 +43,16 @@ public class GoodsController {
 
     @ApiOperation("获取不同种类的产品")
     @GetMapping("/getAllByType")
-    public Result getAllByType(@RequestParam int type) {
+    public Result getAllByType(@ApiParam(value="类型",required = true, example = "1") @RequestParam int type,
+                               @ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
+                               @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize
+                               ) {
+        PageHelper.startPage(pageNum, pageSize);
         List<Goods> goodsList = goodsService.getAllByType(type);
+        PageInfo<Goods> pageInfo = new PageInfo<>(goodsList);
+
         if (goodsList.size() != 0) {
-            return ResultGenerator.getSuccessResult("种类"+type+"的产品如下: ",goodsList);
+            return ResultGenerator.getSuccessResult("种类"+type+"的产品如下: ",pageInfo);
         }
         return ResultGenerator.getFailResult("没有产品");
     }
