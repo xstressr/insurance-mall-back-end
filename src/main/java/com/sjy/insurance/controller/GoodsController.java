@@ -73,10 +73,14 @@ public class GoodsController {
 
     @ApiOperation("通过登陆用户获取所有产品的缩略信息")
     @GetMapping("/getAllAbbreByloginName")
-    public Result getAllAbbreByLoginName(@RequestParam String loginName) {
+    public Result getAllAbbreByLoginName(@RequestParam String loginName,
+                                         @ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
+                                         @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<GoodsAbbre> goodsList = goodsService.getAllGoodsAbbreByLoginUser(loginName);
+        PageInfo<GoodsAbbre> pageInfo = new PageInfo<>(goodsList);
         if (goodsList.size() != 0) {
-            return ResultGenerator.getSuccessResult("用户：" + loginName + " 产品如下",goodsList);
+            return ResultGenerator.getSuccessResult("用户：" + loginName + " 产品如下",pageInfo);
         }
         return ResultGenerator.getFailResult("没有产品");
     }
@@ -121,7 +125,7 @@ public class GoodsController {
         return pageInfo;
     }
 
-    @ApiOperation("分页查询所有未上架上架商品")
+    @ApiOperation("分页查询所有未上架商品")
     @GetMapping("/getNoUpGoodsList")
     public PageInfo<Goods> getNoUpGoodsList(@ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
                                         @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {

@@ -39,9 +39,9 @@ public class ClaimController {
     @GetMapping("/updateStatus")
     public Result updateStatus(@RequestParam Integer status,
                                    @RequestParam String resolver,
-                                   @RequestParam String guaranteeNo)
+                                   @RequestParam String claimNo)
     {
-        int result = claimService.updateStatus(status, resolver, guaranteeNo);
+        int result = claimService.updateStatus(status, resolver, claimNo);
         if (result > 0) {
             return ResultGenerator.getSuccessResult("修改状态成功");
         }

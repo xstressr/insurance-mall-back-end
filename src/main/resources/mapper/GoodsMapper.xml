@@ -25,6 +25,8 @@
     <result column="total" jdbcType="INTEGER" property="total" />
     <result column="min_age" jdbcType="INTEGER" property="minAge" />
     <result column="max_age" jdbcType="INTEGER" property="maxAge" />
+    <result column="min_level" jdbcType="INTEGER" property="minLevel" />
+    <result column="max_level" jdbcType="INTEGER" property="maxLevel" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sjy.insurance.entity.Goods">
     <!--
@@ -52,7 +54,7 @@
     -->
     goods_id, goods_name, goods_intro, goods_category_id, goods_cover_img, goods_carousel, 
     original_price, selling_price, tag, goods_sell_status, create_user, create_time, 
-    update_user, update_time, claim_amount, deadline, total, min_age, max_age
+    update_user, update_time, claim_amount, deadline, total, min_age, max_age, min_level, max_level
   </sql>
   <sql id="Blob_Column_List">
     <!--
@@ -93,7 +95,7 @@
     select
     <include refid="Goods_Column_Abbre_List" />
     from t_insurance_mall_goods_info
-    where create_user = #{loginName}
+    where create_user = #{loginName} and goods_sell_status = 1
   </select>
   <select id="queryGoodsDetail" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
     select
@@ -143,7 +145,8 @@
       goods_category_id, goods_cover_img, goods_carousel, 
       original_price, selling_price, tag, 
       goods_sell_status, create_user, create_time, 
-      update_user, update_time, goods_detail_content, claim_amount, deadline, total, min_age, max_age
+      update_user, update_time, goods_detail_content, claim_amount, deadline, total, min_age, max_age,
+                                             min_level, max_level
       )
     values (#{goodsId,jdbcType=BIGINT}, #{goodsName,jdbcType=VARCHAR}, #{goodsIntro,jdbcType=VARCHAR}, 
       #{goodsCategoryId,jdbcType=INTEGER}, #{goodsCoverImg,jdbcType=VARCHAR}, #{goodsCarousel,jdbcType=VARCHAR}, 
@@ -151,7 +154,8 @@
       #{goodsSellStatus,jdbcType=TINYINT}, #{createUser,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{goodsDetailContent,jdbcType=LONGVARCHAR},
       #{claimAmount,jdbcType=INTEGER}, #{deadline,jdbcType=VARCHAR}, #{total,jdbcType=INTEGER},
-            #{minAge,jdbcType=INTEGER}, #{maxAge,jdbcType=INTEGER}
+            #{minAge,jdbcType=INTEGER}, #{maxAge,jdbcType=INTEGER}, #{minLevel,jdbcType=INTEGER},
+            #{maxLevel,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.sjy.insurance.entity.Goods">
@@ -219,8 +223,16 @@
         min_age,
       </if>
       <if test="maxAge != null">
-        max_age
+        max_age,
       </if>
+      <if test="minLevel != null">
+        min_level,
+      </if>
+      <if test="maxLevel != null">
+        max_level
+      </if>
+
+
 
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -282,8 +294,15 @@
         #{minAge,jdbcType=INTEGER},
       </if>
       <if test="maxAge != null">
-        #{maxAge,jdbcType=INTEGER}
+        #{maxAge,jdbcType=INTEGER},
       </if>
+      <if test="minLevel != null">
+        #{minLevel,jdbcType=INTEGER},
+      </if>
+      <if test="maxLevel != null">
+        #{maxLevel,jdbcType=INTEGER}
+      </if>
+
 
 
     </trim>

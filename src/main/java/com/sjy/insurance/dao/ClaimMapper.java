@@ -54,8 +54,8 @@ public interface ClaimMapper {
      */
     int updateByPrimaryKey(Claim record);
 
-    @Update("update t_insurance_claim set status = #{status}, resolver=#{resolver}  where guarantee_no = #{guaranteeNo} ")
-    int updateStatusByGoodName(int status,String resolver ,String guaranteeNo);
+    @Update("update t_insurance_claim set status = #{status}, resolver=#{resolver}  where claim_no = #{claimNo} ")
+    int updateStatusByGoodName(int status,String resolver ,String claimNo);
 
     List<Claim> selectAllByName(String loginName);
 
