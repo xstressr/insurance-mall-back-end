@@ -31,15 +31,15 @@ public class GoodsController {
     @Autowired
     private GoodsMapper goodsMapper;
 
-    @ApiOperation("获取所有上架产品前九个")
-    @GetMapping("/getAll")
-    public Result getAll() {
-        List<Goods> goodsList = goodsService.getAllGoods();
-        if (goodsList.size() != 0) {
-            return ResultGenerator.getSuccessResult(goodsList);
-        }
-        return ResultGenerator.getFailResult("没有产品");
-    }
+//    @ApiOperation("获取所有上架产品前九个")
+//    @GetMapping("/getAll")
+//    public Result getAll() {
+//        List<Goods> goodsList = goodsService.getAllGoods();
+//        if (goodsList.size() != 0) {
+//            return ResultGenerator.getSuccessResult(goodsList);
+//        }
+//        return ResultGenerator.getFailResult("没有产品");
+//    }
 
     @ApiOperation("获取不同种类的产品")
     @GetMapping("/getAllByType")
@@ -59,10 +59,14 @@ public class GoodsController {
 
     @ApiOperation("通过登陆用户获取所有产品")
     @GetMapping("/getAllByloginName")
-    public Result getAllByLoginName(@RequestParam String loginName) {
+    public Result getAllByLoginName(@RequestParam String loginName,
+                                    @ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
+                                    @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<Goods> goodsList = goodsService.getAllGoodsByLoginUser(loginName);
+        PageInfo<Goods> pageInfo = new PageInfo<>(goodsList);
         if (goodsList.size() != 0) {
-            return ResultGenerator.getSuccessResult("用户：" + loginName + " 产品如下",goodsList);
+            return ResultGenerator.getSuccessResult("用户：" + loginName + " 产品如下",pageInfo);
         }
         return ResultGenerator.getFailResult("没有产品");
     }
@@ -107,12 +111,22 @@ public class GoodsController {
         return ResultGenerator.getSuccessResult("产品详情如下", goods);
     }
 
-    @ApiOperation("分页查询")
+    @ApiOperation("分页查询所有上架商品")
     @GetMapping("/getGoodsList")
     public PageInfo<Goods> getGoodsList(@ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
                                         @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        List<Goods> goods = goodsMapper.findAll();
+        List<Goods> goods = goodsMapper.findAllUp();
+        PageInfo<Goods> pageInfo = new PageInfo<>(goods);
+        return pageInfo;
+    }
+
+    @ApiOperation("分页查询所有未上架上架商品")
+    @GetMapping("/getNoUpGoodsList")
+    public PageInfo<Goods> getNoUpGoodsList(@ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
+                                        @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Goods> goods = goodsMapper.findAllNoUp();
         PageInfo<Goods> pageInfo = new PageInfo<>(goods);
         return pageInfo;
     }

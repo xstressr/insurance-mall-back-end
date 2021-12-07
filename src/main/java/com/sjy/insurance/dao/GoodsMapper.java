@@ -89,7 +89,8 @@ public interface GoodsMapper {
     List<Goods> selectAllByGoodsCategoryId(int type);
 
 //    @Select("select * from t_insurance_mall_goods_info")
-    List<Goods> findAll();
+    List<Goods> findAllUp();
 
+    List<Goods> findAllNoUp();
 
 }

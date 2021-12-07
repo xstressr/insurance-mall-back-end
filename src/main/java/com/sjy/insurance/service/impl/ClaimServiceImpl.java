@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.sjy.insurance.util.NumberUtil.genOrderNo;
+
 @Service
 public class ClaimServiceImpl implements ClaimService {
 
@@ -16,6 +18,7 @@ public class ClaimServiceImpl implements ClaimService {
 
     @Override
     public int insert(Claim claim) {
+        claim.setClaimNo("co"+genOrderNo());
         return claimMapper.insertSelective(claim);
     }
 
