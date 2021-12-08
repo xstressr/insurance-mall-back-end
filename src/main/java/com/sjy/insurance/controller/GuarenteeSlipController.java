@@ -2,6 +2,7 @@ package com.sjy.insurance.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.sjy.insurance.dao.GuarenteeSlipMapper;
 import com.sjy.insurance.entity.GuarenteeSlip;
 import com.sjy.insurance.service.GuarenteeSlipService;
 import com.sjy.insurance.util.Result;
@@ -26,6 +27,9 @@ public class GuarenteeSlipController {
     @Autowired
     private GuarenteeSlipService guarenteeSlipService;
 
+    @Autowired
+    private GuarenteeSlipMapper guarenteeSlipMapper;
+
     @ApiOperation("查询所有保单")
     @GetMapping("/getAll")
     public Result getAll(@ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
@@ -47,6 +51,21 @@ public class GuarenteeSlipController {
                                     @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<GuarenteeSlip> guarenteeSlipList = guarenteeSlipService.getAllByLoginName(loginName);
+        PageInfo<GuarenteeSlip> pageInfo = new PageInfo<>(guarenteeSlipList);
+        if (guarenteeSlipList.size() > 0) {
+            return ResultGenerator.getSuccessResult("查询成功", pageInfo);
+        }
+        return ResultGenerator.getFailResult("没有保单");
+    }
+
+    @ApiOperation("查询公司下的具体那个用户的保单")
+    @GetMapping("/getAllByCompany")
+    public Result getAllByLoginName(@RequestParam String username,
+                                    @RequestParam String company,
+                                    @ApiParam(value="页码",required = true, example = "1") @RequestParam int pageNum,
+                                    @ApiParam(value="单页数量",required = true, example = "5") @RequestParam int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<GuarenteeSlip> guarenteeSlipList = guarenteeSlipMapper.queryAllByCompany(company,username);
         PageInfo<GuarenteeSlip> pageInfo = new PageInfo<>(guarenteeSlipList);
         if (guarenteeSlipList.size() > 0) {
             return ResultGenerator.getSuccessResult("查询成功", pageInfo);

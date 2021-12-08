@@ -61,4 +61,6 @@ public interface GuarenteeSlipMapper {
     List<GuarenteeSlip> queryAllByOwner(String loginName);
 
     List<GuaranteeTmp> queryProductCount();
+
+    List<GuarenteeSlip> queryAllByCompany(String company, String userName);
 }
